@@ -19,6 +19,19 @@ public class UserInterface {
     }
 
     // ENTRADAS
+    public int askPropertyType() {
+        int type;
+        do {
+            System.out.println("\nEscolha o tipo de imóvel:");
+            System.out.println("1 - Casa");
+            System.out.println("2 - Apartamento");
+            System.out.println("3 - Terreno");
+            type = (int) readDoubleWithRetry("Opção: ");
+            if (type < 1 || type > 3) System.out.println("Erro: Opção inválida!");
+        } while (type < 1 || type > 3);
+        return type;
+    }
+
     // Valor Imóvel
     public double askPropertyValue() {
         double value;
@@ -59,12 +72,12 @@ public class UserInterface {
         return rate;
     }
 
-    public boolean askToContinue() {
-        System.out.print("\nDeseja adicionar outro financiamento? (S/N):");
+    public boolean askForNewSimulation() {
+        System.out.print("\nDeseja realizar uma nova simulação completa? (S/N): ");
         String response = scanner.next().trim().toUpperCase();
-        return  response.startsWith("S");
-
+        return response.startsWith("S");
     }
+
     private double readDoubleWithRetry(String prompt) {
         int attempts = 0;
         while (attempts < MAX_ATTEMPTS) {

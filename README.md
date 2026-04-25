@@ -21,6 +21,17 @@ Caso o usuário não informe uma taxa, o sistema assume automaticamente o valor 
 - **Formatação Monetária BRL:** Saída de dados totalmente formatada para o padrão brasileiro (R$ 1.234.567,89)
 utilizando `Locale.of("pt", "BR")`.
 
+- **Herança:** A classe `Financing` tornou-se uma superclasse abstrata, servindo de base para `House`, `Apartment` e `Land`.
+
+- **Especialização de Regras:**
+    - **Casas:** Adição de taxa de seguro obrigatória (R$ 80,00/parcela).
+    - **Apartamentos:** Implementação de juros compostos utilizando `Math.pow` para maior precisão financeira.
+    - **Terrenos:** Acréscimo de 2% sobre o valor da parcela devido ao risco de inadimplência.
+
+- **Polimorfismo:** O sistema agora processa uma lista única de financiamentos, chamando dinamicamente o método de cálculo correto para cada tipo de objeto em tempo de execução.
+
+- **Relatórios Analíticos:** Inclusão de balanço geral que separa o Valor do Imóvel, o Custo dos Juros e o Total Financiado.
+
 ### Tecnologias e Conceitos Aplicados
 - **Linguagem:** Java (JDK 19+).
 - **Paradigma:** Orientação a Objetos (Associação de classes, Encapsulamento e Interação entre objetos).
